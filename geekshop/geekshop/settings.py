@@ -40,7 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'mainapp',
+    'authapp',
 ]
+
+AUTH_USER_MODEL = 'authapp.ShopUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -123,7 +126,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "geekshop","static"),
+    os.path.join(BASE_DIR, "geekshop", "static"),
 )
 
 MEDIA_URL = '/media/'

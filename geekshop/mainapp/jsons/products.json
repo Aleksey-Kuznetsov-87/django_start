@@ -1,0 +1,56 @@
+[
+  {
+      "category": 1 ,
+      "name": "Удобный стул" ,
+      "image": "products_images/product-21_ssm.jpg" ,
+      "short_desc": "" ,
+      "description": "" ,
+      "price": "1979.56" ,
+      "quantity": 198
+  } ,
+  {
+      "category": 1 ,
+      "name": "Лампа-сфера" ,
+      "image": "products_images/product-1.jpg" ,
+      "short_desc": "Уникальный дизайн" ,
+      "description": "Мега удобный девайс" ,
+      "price": "2360.00" ,
+      "quantity": 6
+  } ,
+  {
+      "category": 1 ,
+      "name": "Стул офисный" ,
+      "image": "products_images/product-4.jpg" ,
+      "short_desc": "Уникальный дизайн" ,
+      "description": "Очень удобный стул" ,
+      "price": "6842.00" ,
+      "quantity": 94
+  } ,
+  {
+      "category": 3 ,
+      "name": "Диван классический" ,
+      "image": "products_images/product-3-sm.jpg" ,
+      "short_desc": "Кожа натурального дермантина" ,
+      "description": "Дополнит любое помещение" ,
+      "price": "52000.00" ,
+      "quantity": 3
+  } ,
+  {
+      "category": 4 ,
+      "name": "Стулья" ,
+      "image": "products_images/product-2.jpg" ,
+      "short_desc": "Практичные для офиса и дома" ,
+      "description": "Жутко удобные" ,
+      "price": "16400.00" ,
+      "quantity": 15
+  } ,
+  {
+      "category": 2 ,
+      "name": "Чайник" ,
+      "image": "products_images/product-3.jpg" ,
+      "short_desc": "Электрический чайник" ,
+      "description": "Работает только при наличии воды и электричества" ,
+      "price": "1800.00" ,
+      "quantity": 9
+  }
+]
