@@ -18,9 +18,3 @@ def products(request):
     }
     return render(request, 'mainapp/products.html', context=context)
 
-
-def main(request):
-    title = 'главная'
-    products = Product.objects.all()[:4]
-    content = {'title': title, 'products': products}
-    return render(request, 'mainapp/index.html', content)
