@@ -57,6 +57,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'geekshop.urls'
+LOGIN_URL = '/auth/login/'
 
 TEMPLATES = [
     {
