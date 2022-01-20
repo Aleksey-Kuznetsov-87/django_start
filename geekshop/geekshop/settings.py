@@ -39,9 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'django.contrib.humanize',
+
     'mainapp',
     'authapp',
     'basketapp',
+    'adminapp',
 ]
 
 AUTH_USER_MODEL = 'authapp.ShopUser'

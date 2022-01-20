@@ -84,7 +84,7 @@ html, body {
 	display: block;
 	width: 150px;
 	height: 23px;
-	background-image: url(img/basket_4.jpg);
+	/*background-image: url(img/basket_4.png);*/
 	position: absolute;
 	top: 58px;
 	left: 1190px;

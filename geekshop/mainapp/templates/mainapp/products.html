@@ -1,7 +1,7 @@
 {% extends 'geekshop/base.html' %}
 
 {% load static %}
-
+{% load humanize %}
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static '/mainapp/style.css' %}">
 {% endblock %}
@@ -64,7 +64,7 @@
         <div class="description">
             <h3 class="big-bold">{{ hot_product.short_desc }}</h3>
             <h3 class="red">горячее предложение</h3>
-            <p class="price"> {{ hot_product.price }} <span>руб</span></p>
+            <p class="price"> {{ hot_product.price|intcomma }} <span>руб</span></p>
             <a href="{% url 'mainapp:detail' pk=hot_product.pk %}" class="red-button">
                 заказать <i class="fa chevron-right" aria-hidden="true"></i>
             </a>

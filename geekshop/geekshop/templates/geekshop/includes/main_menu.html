@@ -1,14 +1,22 @@
+{% load humanize %}
 <a href="{% url 'index' %}" class="logo"></a>
 <ul class="menu">
     <li><a href="{% url 'index' %}" class="active">домой</a></li>
     <li><a href="{% url 'products:index' %}">продукты</a></li>
     <li><a href="{% url 'contacts' %}">контакты</a></li>
     {% if user.is_authenticated %}
-    <li>
-        <a href="{% url 'auth:edit' %}">
-            {{ user.first_name|default:'Пользователь' }}
-        </a>
-    </li>
+        <li>
+            <a href="{% url 'auth:edit' %}">
+                {{ user.first_name|default:'Пользователь' }}
+            </a>
+        </li>
+        {% if user.is_superuser %}
+            <li>
+                <a href="{% url 'admin_staff:users' %}">
+                    Админко
+                </a>
+            </li>
+        {% endif %}
     {% endif %}
     <li>
         {% if user.is_authenticated %}
@@ -20,10 +28,18 @@
     {% if basket %}
         <li>
             <a href="{% url 'basket:index' %}" class="basket">
-                <span style="font-size: 90%; color: #0000FF">
-                    {{ basket.0.total_cost|floatformat:0 }} р
-                    ({{ basket.0.total_quantity }} шт)
-                </span>
+                <div style="position: absolute; width: 75%; margin: 0 auto;">
+                    <div>
+                        <span style="font-size: 90%; color: #0000FF">
+                            {{ basket.0.total_cost|floatformat:0|intcomma }} р
+                        </span>
+                    </div>
+                    <div>
+                        <span style="font-size: 90%; color: #0000FF">
+                            ({{ basket.0.total_quantity }} шт)
+                        </span>
+                    </div>
+                </div>
             </a>
         </li>
     {% endif %}

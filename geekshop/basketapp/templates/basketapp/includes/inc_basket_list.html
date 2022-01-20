@@ -1,3 +1,4 @@
+{% load humanize %}
 
 {% for item in basket_items %}
     <div class="basket_record">
@@ -5,11 +6,11 @@
 
         <span class="category_name">{{ item.product.category.name }}.&nbsp</span>
         <span class="product_name">{{ item.product.name }}.&nbsp</span>
-        <span class="product_price"> Цена: {{ item.product.price }}&nbsp руб &nbsp</span>
+        <span class="product_price"> Цена: {{ item.product.price|intcomma }}&nbsp руб &nbsp</span>
         <input type="number" name="{{ item.pk }}"
                min="0"
                value="{{ item.quantity }}">
-        <span class="product_cost">{{ item.cost }}&nbsp руб &nbsp</span>
+        <span class="product_cost">{{ item.cost }}&nbsp шт. &nbsp</span>
         <button class="button-round">
             <a href="{% url 'basket:remove' item.pk %}" class="button_href">
                 удалить
@@ -23,7 +24,7 @@
     {% if basket_items %}
         В корзине: <strong> {{ basket_items.0.total_quantity }} </strong> товаров.<br>
         Общей стоимостью:
-        <strong> {{ basket_items.0.total_cost }}  </strong> руб
+        <strong> {{ basket_items.0.total_cost|intcomma }}  </strong> руб
     {% endif %}
 </div><br>
 <button class="button-round_back">
