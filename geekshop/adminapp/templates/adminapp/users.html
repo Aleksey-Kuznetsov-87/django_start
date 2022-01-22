@@ -60,7 +60,7 @@
                                 </td>
                                 <td>{{ user.last_login }}</td>
                                 <td>
-                                    <a {% if not user.is_active %} class="invisible" {% endif %} href="{% url 'admin_staff:user_delete' pk=user.id %}">
+                                    <a {% if not user.is_active %} class="invisible" {% endif %} href="{% url 'admin_staff:user_delete' pk=user.pk %}">
                                         <i class="fa fa-times-circle"></i>
                                     </a>
                                 </td>

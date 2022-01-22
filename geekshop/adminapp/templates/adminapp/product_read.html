@@ -1,0 +1,15 @@
+{% extends 'adminapp/base.html' %}
+{% load humanize %}
+{% load static %}
+{% block content %}
+
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="{{ object.image.url }}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title" style="text-align: center;"><strong>{{ object.name }}</strong></h5>
+        <p class="card-text">{{ object.description }}</p>
+              <p class="card-text">Цена:&nbsp {{ object.price|intcomma }}&nbsp руб</p>
+        <a href="{{request.META.HTTP_REFERER}}" class="btn btn-primary">Назад</a>
+      </div>
+    </div>
+{% endblock %}

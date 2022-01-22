@@ -4,8 +4,8 @@
 {% block content %}
     <form class="form-horizontal" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ user_form }}
+        {{ update_form }}<br>
       <button type="submit" class="btn btn-primary">Сохранить</button>
-        <a href="{% url 'admin_staff:users' %}" class="btn btn-primary">Назад</a>
+        <a href="{% url 'admin_staff:products' category.pk %}" class="btn btn-primary">Назад</a>
     </form>
 {% endblock %}
