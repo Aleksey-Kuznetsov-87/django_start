@@ -73,6 +73,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'mainapp.context_processors.basket'
             ],
         },
     },
@@ -141,3 +142,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# EMAIL_HOST = 'localhost'
+# EMAIL_PORT = '25'
+# EMAIL_HOST_USER = 'django@geekshop.local'
+# EMAIL_HOST_PASSWORD = 'geekshop'
+# EMAIL_USE_SSL = False
+
+DOMAIN_NAME = 'http://127.0.0.1:8000'
+
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = '7cfcc61ce15951'
+EMAIL_HOST_PASSWORD = '7f5980504a52c3'
+EMAIL_PORT = '2525'

@@ -1,0 +1,12 @@
+{% extends 'authapp/base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% if user %}
+    <div style="text-align: center;">
+        <h4>Пользователь {{user.username}} уже подтвержден!</h4>
+    </div>
+{% endif %}
+
+{% endblock %}
