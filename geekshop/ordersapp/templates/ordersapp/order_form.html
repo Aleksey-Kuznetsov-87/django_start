@@ -1,9 +1,10 @@
 {% extends "geekshop/base.html" %}
 {% load static %}
 
-
+{% load humanize %}
 {% block js %}
-    <script src="{% static 'ordersapp/js/orders_scripts.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="{% static 'ordersapp/js/script.js' %}"></script>
     <script src="{% static 'ordersapp/js/jquery.formset.js' %}"></script>
 {% endblock %}
 
@@ -59,7 +60,7 @@
                                    {% else %}
                                        {% if field.value %}
                                             <span class="orderitems-{{ forloop.parentloop.counter0 }}-price">
-                                                {{ field.value }}
+                                                {{ field.value|intcomma }}
                                             </span> руб
                                        {% endif %}
                                    {% endif %}
