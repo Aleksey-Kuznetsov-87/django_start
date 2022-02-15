@@ -5,3 +5,4 @@ from mainapp.views import products
 urlpatterns = [
     path('', products)
 ]
+
