@@ -9,7 +9,7 @@
  * Licensed under the New BSD License
  * See: http://www.opensource.org/licenses/bsd-license.php
  */
-;(function ($) {
+;(function($) {
     $.fn.formset = function (opts) {
         let options = $.extend({}, $.fn.formset.defaults, opts),
             flatExtraClasses = options.extraClasses.join(' '),
@@ -26,7 +26,7 @@
                 }
             },
 
-            updateElementIndex = function (elem, prefix, ndx) {
+            updateElementIndex = function(elem, prefix, ndx) {
                 let idRegex = new RegExp(prefix + '-(\\d+|__prefix__)-'),
                     replacement = prefix + '-' + ndx + '-';
                 if (elem.attr("for")) elem.attr("for", elem.attr("for").replace(idRegex, replacement));
@@ -34,11 +34,11 @@
                 if (elem.attr('name')) elem.attr('name', elem.attr('name').replace(idRegex, replacement));
             },
 
-            hasChildElements = function (row) {
+            hasChildElements = function(row) {
                 return row.find(childElementSelector).length > 0;
             },
 
-            showAddButton = function () {
+            showAddButton = function() {
                 return maxForms.length == 0 ||   // For Django versions pre 1.2
                     (maxForms.val() == '' || (maxForms.val() - totalForms.val() > 0));
             },
@@ -46,12 +46,12 @@
             /**
              * Indicates whether delete link(s) can be displayed - when total forms > min forms
              */
-            showDeleteLinks = function () {
+            showDeleteLinks = function() {
                 return minForms.length == 0 ||   // For Django versions pre 1.7
                     (minForms.val() == '' || (totalForms.val() - minForms.val() > 0));
             },
 
-            insertDeleteLink = function (row) {
+            insertDeleteLink = function(row) {
                 let delCssSelector = $.trim(options.deleteCssClass).replace(/\s+/g, '.'),
                     addCssSelector = $.trim(options.addCssClass).replace(/\s+/g, '.');
 
@@ -104,14 +104,14 @@
                         if (!del.length) {
                             // Also update names and IDs for all child controls (if this isn't
                             // a delete-able inline formset) so they remain in sequence:
-                            forms.eq(i).find(childElementSelector).each(function () {
+                            forms.eq(i).find(childElementSelector).each(function() {
                                 updateElementIndex($(this), options.prefix, i);
                             });
                         }
                     }
                     // Check if we've reached the minimum number of forms - hide all delete link(s)
                     if (!showDeleteLinks()) {
-                        $('a.' + delCssSelector).each(function () {
+                        $('a.' + delCssSelector).each(function() {
                             $(this).hide();
                         });
                     }
@@ -123,7 +123,7 @@
                 });
             };
 
-        $$.each(function (i) {
+        $$.each(function(i) {
             let row = $(this),
                 del = row.find('input:checkbox[id $= "-DELETE"]');
             if (del.length) {
@@ -158,7 +158,7 @@
                 // If a form template was specified, we'll clone it to generate new form instances:
                 template = (options.formTemplate instanceof $) ? options.formTemplate : $(options.formTemplate);
                 template.removeAttr('id').addClass(options.formCssClass + ' formset-custom-template');
-                template.find(childElementSelector).each(function () {
+                template.find(childElementSelector).each(function() {
                     updateElementIndex($(this), options.prefix, '__prefix__');
                 });
                 insertDeleteLink(template);
@@ -169,7 +169,7 @@
                 template = $('.' + options.formCssClass + ':last').clone(true).removeAttr('id');
                 template.find('input:hidden[id $= "-DELETE"]').remove();
                 // Clear all cloned fields, except those the user wants to keep (thanks to brunogola for the suggestion):
-                template.find(childElementSelector).not(options.keepFieldValues).each(function () {
+                template.find(childElementSelector).not(options.keepFieldValues).each(function() {
                     let elem = $(this);
                     // If this is a checkbox or radiobutton, uncheck it.
                     // This fixes Issue 1, reported by Wilson.Andrew.J:
@@ -180,7 +180,7 @@
                     }
                 });
             }
-            
+
             options.formTemplate = template;
 
             let addButtonHTML = '<a class="' + options.addCssClass + '" href="javascript:void(0)">' + options.addText + '</a>';
@@ -205,20 +205,20 @@
 
             if (hideAddButton) addButton.hide();
 
-            addButton.click(function () {
+            addButton.click(function() {
                 let formCount = parseInt(totalForms.val()),
                     row = options.formTemplate.clone(true).removeClass('formset-custom-template'),
                     buttonRow = $($(this).parents('tr.' + options.formCssClass + '-add').get(0) || this),
                     delCssSelector = $.trim(options.deleteCssClass).replace(/\s+/g, '.');
                 applyExtraClasses(row, formCount);
                 row.insertBefore(buttonRow).show();
-                row.find(childElementSelector).each(function () {
+                row.find(childElementSelector).each(function() {
                     updateElementIndex($(this), options.prefix, formCount);
                 });
                 totalForms.val(formCount + 1);
                 // Check if we're above the minimum allowed number of forms -> show all delete link(s)
                 if (showDeleteLinks()) {
-                    $('a.' + delCssSelector).each(function () {
+                    $('a.' + delCssSelector).each(function() {
                         $(this).show();
                     });
                 }
