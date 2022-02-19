@@ -35,9 +35,10 @@
             </li>
             {% endfor %}
         </ul>
-    </div>
+    </div><br>
 
-    <div class="details-products">
+    <table>
+    <tr><td align="center">
         <div class="details-slider">
             <div class="slider-product">
                 <img src="/media/{{ hot_product.image }} " width="80%" height="80%">
@@ -60,7 +61,7 @@
                 </div>
             </div>
         </div>
-
+        </td><td valign="top" align="center">
         <div class="description">
             <h3 class="big-bold">{{ hot_product.short_desc }}</h3>
             <h3 class="red">горячее предложение</h3>
@@ -72,10 +73,13 @@
                 {{ hot_product.description }}
             </div>
         </div>
-    </div>
+    </td>
+    </tr>
+    </table>
+    <br>
 
-    <div class="related">
-        <div class="title clearfix">
+    <div>
+        <div>
             {% if category %}
             <h2>
                 Категория: "{{ category.name|title }}"
