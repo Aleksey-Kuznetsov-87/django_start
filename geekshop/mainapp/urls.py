@@ -1,5 +1,5 @@
 from django.urls import path
-# import mainapp.views as mainapp
+from django.views.decorators.cache import cache_page
 from mainapp.views import products, product
 
 app_name = 'mainapp'
@@ -7,6 +7,6 @@ app_name = 'mainapp'
 urlpatterns = [
     path('', products, name='index'),
     path('category/<int:pk>/', products, name='category'),
-    path('category/<int:pk>/page/<int:page>/', products, name='page'),
+    path('category/<int:pk>/page/<int:page>/', cache_page(3600)(products), name='page'),
     path('product/<int:pk>/', product, name='detail'),
 ]

@@ -1,0 +1,7 @@
+env/
+db.sqlite3
+db.json
+!/geekshop/geekshop/.env
+/geekshop/geekshop/.env.template
+!/geekshop/db.sqlite3
+geekshop/tmp/profile/
